@@ -34,19 +34,18 @@ def pooling(array, x, y):
 # N = int(input())
 N = 4
 dim = N * N
-res = [[[[0 for col in range(N)] for row in range(N)]
-        for zzz in range(dim)] for kkk in range(4)]
+res = [[[0 for col in range(N)] for row in range(N)] for zzz in range(dim)]
 solution_num = 0
 
-for kkk in range(4):
-    i = 0
-    j = 0
-    for zzz in range(dim):
-        if (j // N > 0):
-            i += 1
-            j = 0
-        res[kkk][zzz][i][j] = 1
-        j += 1
+
+i = 0
+j = 0
+for zzz in range(dim):
+    if (j // N > 0):
+        i += 1
+        j = 0
+    res[zzz][i][j] = 1
+    j += 1
 
 for k in range(dim):
     cnt = 1
@@ -62,7 +61,6 @@ for k in range(dim):
 for zzz in range(dim):
     print(zzz)
     for i in range(N):
-
         print(res[zzz][i])
     print('--------------------')
 print('--------------------')
